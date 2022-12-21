@@ -58,6 +58,7 @@ type NotifyAdminData struct {
 	RequiredPlan    string                `json:"required_plan"`
 	RequiredFeature MattermostPaidFeature `json:"required_feature"`
 	Trial           bool                  `json:"trial"`
+	SentAt			int64				  `json:"sent_at"`
 }
 
 func (nad *NotifyAdminData) IsValid() *AppError {

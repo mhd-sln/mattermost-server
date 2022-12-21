@@ -36,6 +36,9 @@ func (a *App) SaveAdminNotification(userId string, notifyData *model.NotifyAdmin
 		RequiredFeature: requiredFeature,
 		Trial:           trial,
 	})
+
+
+
 	if appErr != nil {
 		return appErr
 	}
