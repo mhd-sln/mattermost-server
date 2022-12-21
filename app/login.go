@@ -292,6 +292,7 @@ func (a *App) AttachSessionCookies(c *request.Context, w http.ResponseWriter, r 
 	subpath, _ := utils.GetSubpathFromConfig(a.Config())
 
 	expiresAt := time.Unix(model.GetMillis()/1000+int64(maxAgeSeconds), 0)
+
 	sessionCookie := &http.Cookie{
 		Name:     model.SessionCookieToken,
 		Value:    c.Session().Token,

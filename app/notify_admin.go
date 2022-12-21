@@ -7,7 +7,6 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"os"
 	"strconv"
 
 	"github.com/mattermost/mattermost-server/v6/app/request"
@@ -198,12 +197,12 @@ func (a *App) CanNotifyAdmin(trial bool) bool {
 		return false
 	}
 
-	coolOffPeriodDaysEnv := os.Getenv("MM_NOTIFY_ADMIN_COOL_OFF_DAYS")
+	/*coolOffPeriodDaysEnv := os.Getenv("MM_NOTIFY_ADMIN_COOL_OFF_DAYS")
 	coolOffPeriodDays, parseError := strconv.ParseFloat(coolOffPeriodDaysEnv, 64)
 	if parseError != nil {
 		coolOffPeriodDays = defaultNotifyAdminCoolOffDays
-	}
-	daysToMillis := coolOffPeriodDays * 24 * 60 * 60 * 1000
+	}*/
+	daysToMillis :=  60 * 1000
 	timeDiff := model.GetMillis() - int64(lastNotificationTimestamp)
 	return timeDiff >= int64(daysToMillis)
 }
